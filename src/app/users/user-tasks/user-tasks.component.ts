@@ -16,6 +16,7 @@ import { RouterLink, RouterOutlet } from "@angular/router";
 export class UserTasksComponent implements OnInit {
   // userName = '';
   userId = input.required<string>();
+  message = input.required<string>();
 
   constructor(
     private usersService: UsersService,
@@ -31,6 +32,7 @@ export class UserTasksComponent implements OnInit {
   );
 
   ngOnInit() {
+    console.log(this.message());
     //   const subscription = this.activatedRoute.paramMap.subscribe({
     //     next: paramMap =>
     //       this.userName = this.usersService.users.find(
