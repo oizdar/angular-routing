@@ -66,3 +66,10 @@ export const resolveUserName: ResolveFn<string> = (
     user => user.id === activatedRoute.paramMap.get('userId')
   )?.name || '';
 }
+
+export const resolveTitle: ResolveFn<string> = (
+  activatedRoute: ActivatedRouteSnapshot,
+  routerState: RouterStateSnapshot
+) => {
+  return resolveUserName(activatedRoute, routerState) + '\'s Tasks';
+}
