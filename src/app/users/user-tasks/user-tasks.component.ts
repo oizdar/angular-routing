@@ -1,6 +1,13 @@
 import { Component, computed, DestroyRef, inject, input, OnInit } from '@angular/core';
 import { UsersService } from "../users.service";
-import { ActivatedRouteSnapshot, ResolveFn, RouterLink, RouterOutlet, RouterStateSnapshot } from "@angular/router";
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  ResolveFn,
+  RouterLink,
+  RouterOutlet,
+  RouterStateSnapshot
+} from "@angular/router";
 // import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -32,6 +39,12 @@ export class UserTasksComponent implements OnInit {
   // );
 
   ngOnInit() {
+    // this.activatedRoute.data.subscribe({
+    //   next: data => {
+    //     console.log(data);
+    //   }
+    // })
+
     console.log(this.message());
     //   const subscription = this.activatedRoute.paramMap.subscribe({
     //     next: paramMap =>
