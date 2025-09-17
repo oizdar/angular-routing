@@ -2,7 +2,7 @@ import { Component, inject, input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { TasksService } from '../tasks.service';
-import { Router, RouterLink } from "@angular/router";
+import { CanDeactivateFn, Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-new-task',
@@ -33,4 +33,12 @@ export class NewTaskComponent {
       replaceUrl: true
     });
   }
+}
+
+export const canLeaveEditPage: CanDeactivateFn<NewTaskComponent> = (component, currentRoute, currentState, nextState) => {
+  if(component.enteredTitle() || component.enteredSummary() || component.enteredDate()) {
+    return window.confirm('You have unsaved changes. Do you really want to leave?');
+  }
+
+  return true;
 }
